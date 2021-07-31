@@ -350,6 +350,9 @@ footer{
     font-size: 21px;
 }
 
+#mobile-nav{
+    display: none;
+}
 /*Responsive*/
 @media(max-width:500px){
 .nav-bar{
@@ -439,4 +442,40 @@ footer
     align-items: center;
     height: auto;
 }
+
+/*-Responsive nav bar-*/
+
+.mobile-nav,a,i{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px;
+    
 }
+#myLinks{
+    overflow: hidden;
+    display: none;
+}
+#mylinks>li,a{
+    color: black;
+    
+
+   
+  
+}
+#logo{
+    margin: 0px;
+    padding: 20px;
+    font-size: 24px;
+}
+#bars{
+   position: relative;
+    padding: 0px;
+    margin-top: 23px;
+    margin-right: 20px;
+
+ 
+}
+
+}
+
