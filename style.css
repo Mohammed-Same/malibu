@@ -444,7 +444,9 @@ footer
 }
 
 /*-Responsive nav bar-*/
-
+#mobile-nav{
+    display: flex;
+}
 .mobile-nav,a,i{
     display: flex;
     flex-direction: row;
