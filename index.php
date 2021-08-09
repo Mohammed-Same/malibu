@@ -1,3 +1,6 @@
+<?php
+require_once('config.php');
+?>
 <!DOCTYPE html>
   
 <html lang="en">
@@ -13,7 +16,29 @@
     <title>Malibu Hotels and Resorts</title>
 </head>
 <body>
+<div>
+        <?php
+        if(isset($_POST['create'])){
+         $name         = $_POST['name'];
+        $email         = $_POST['email'];
+        $phone         = $_POST['phone'];
+         $message      = $_POST['message'];
+  
 
+         $sql = "INSERT INTO malibumssg (name, email, phone, message) VALUES(?,?,?,?)";
+         $stmtinsert = $db->prepare($sql);
+         $result = $stmtinsert->execute([$name, $email, $phone, $message]);   
+      
+        
+            if($result){
+                echo "Succesfully Saved.";
+                
+            }else {
+                echo "Error saving data";
+            }
+        }
+        ?>
+    </div>
   
   <div class="mobile-nav" id="mobile-nav">
    <div > <i class="fa fa-meetup" id="logo" aria-hidden="true">MAL<span class="ibu">IBU</span></i></div>
@@ -168,17 +193,17 @@
        <!--Contact-->
        <h2>Contact Us</h2>
        <div class="Contact" id="contact">
-        <form action="">
+        <form action="" method="post">
         <label for="name">Full Name</label>
         <input type="text" name="name" placeholder="Full Name" >
         <label for="email">Email</label>
         <input type="text" name="email" placeholder="Email Address" >
         <label for="number">Phone</label>
-        <input type="number" name="number" placeholder="phone #" >
+        <input type="number" name="phone" placeholder="phone #" >
         <br>
         <label for="message">Message</label>
-        <textarea placeholder="Message"></textarea>
-        <button  class="submit-btn">Submit</button></form>
+        <textarea placeholder="Message" name="message"></textarea>
+        <button  class="submit-btn"  name="create">Submit</button></form>
         <div class="address">
           <h5>Contact Info</h5><br>
          <p class="add">
@@ -198,7 +223,7 @@
          </p>
      <div class="icons">   
         <a href="" class="icon-fill" target="_blank"><i class="fa fa-twitter fa-3x"></i></a>
-         <a href="https://www.instagram.com/malibu_hotels2021/" class="icon-fill" target="_blank"><i class="fa fa-instagram fa-3x"></i></a>
+         <a href="" class="icon-fill" target="_blank"><i class="fa fa-instagram fa-3x"></i></a>
          <a href="" class="icon-fill" target="_blank"><i class="fa fa-facebook fa-3x"></i></a>
         </div>
         </div>
@@ -221,7 +246,7 @@
       <div class="icons">   
        <h4>let's connect</h4>
         <a href="" class="icon-fill" target="_blank"><i class="fa fa-twitter fa-3x"></i></a>
-         <a href="https://www.instagram.com/malibu_hotels2021/" class="icon-fill" target="_blank"><i class="fa fa-instagram fa-3x"></i></a>
+         <a href="" class="icon-fill" target="_blank"><i class="fa fa-instagram fa-3x"></i></a>
          <a href="" class="icon-fill" target="_blank"><i class="fa fa-facebook fa-3x"></i></a>
         </div>
     </footer>
